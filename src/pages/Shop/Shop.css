@@ -1,0 +1,40 @@
+.hero-section{
+    min-height: 100px;
+}
+
+.no-list-style{
+    list-style-type: none; 
+}
+.single-card{
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    height: 300px;
+    transition: z-index 0.3s;
+
+}
+.single-card:hover{
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+    z-index: 1;
+}
+.thumbnailImage{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.1s ease;
+}
+
+.single-card:hover .thumbnailImage{
+    transform: scale(0.96);
+    cursor: pointer;
+}
+.single-card{
+    width: 170px;
+    height: 250px;
+    
+}
+.cat-dropdown-toggle::after {
+    content: "\25BC"; /* Unicode for down arrow */
+    margin-left: 5px; /* Adjust the space between text and arrow */
+    position: absolute;
+    top: 0;
+  }

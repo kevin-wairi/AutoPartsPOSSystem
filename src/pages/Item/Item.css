@@ -1,0 +1,45 @@
+
+.item-card-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    text-overflow: hidden;
+}
+.item-image-container{
+    height: 150px;
+    width: 150px;
+}
+.item-card-details{
+    height: 80px;
+    overflow: hidden;  
+}
+@media only screen  and (max-width: 384px){
+    .item-card-details{
+        height: 40px;
+    overflow: hidden;  
+    }  
+}
+
+.item-card-overlay{
+    position: absolute;
+    top:-20px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    opacity: 0;
+    background-color: #fff;
+    border-radius: 5px;
+    z-index: 999;
+}
+.relative{
+    position: relative;
+}
+.single-card:hover .item-card-overlay{
+    opacity:1;
+}
+.buy-btn-2 :hover{
+    border-radius:5px 0 0 5px;
+}
+.buy-btn:hover{
+    border-radius: 0 5px 5px 0;
+}
+.buy-btn-1 .buy-btn-1{
+    border-right: 1px solid black;
+}

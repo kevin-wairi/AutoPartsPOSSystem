@@ -1,13 +1,36 @@
 body {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color:#F9F9FB;
+  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+p,h,div,ul,li,button,a{
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+}
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Karla:wght@200&family=Montserrat:wght@300&display=swap');
+
+@media only screen and (max-width: 320px  ) {
+  body{font-size: 10px;}
+}
+
+@media only screen and (min-width: 384px) {
+  body{font-size: 14px;}
+}
+
+
+h5{
+  font-size: 1.4rem;
+}  
