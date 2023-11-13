@@ -152,42 +152,101 @@ const handleDashboard = ()=>{
       <div className="Navbar-container container">
       <div className=" row d-flex  p-0 m-0">
 
-        <nav className="navbar navbar-expand-lg  navbar-light  col-12" >
+        <nav className="navbar navbar-expand-lg  navbar-light  col-12 border border-danger" >
           <div className="container-fluid">
             <div className='col-md-4'>
             <a className="navbar-brand" href="/#"><img src={heart}  alt='buy'/></a>
             </div>
             <button className="navbar-toggler collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon "></span>
+              <span className="navbar-toggler-icon "></span>
             </button>
-            <div className="collapse navbar-collapse " id="navbarSupportedContent">
-                <div className='Nav-menu d-flex flex-wrap text-center  col-md-5 col-sm-12' id='menu'>
-              
-                        <div className="col-md-4 col-12 nav-item">
-                              <NavLink  to="/"  >Home</NavLink>
-                        </div>
-                        <div className="col-md-4 col-12 nav-item">
-                          <NavLink  to="/shop"  >Shop</NavLink>
-                        </div>
-                        <div className="col-md-4 col-12 nav-item">
-                          <NavLink  to="/pages"  >Pages</NavLink>
-                        </div>
-                </div>
-                    <div className=" col-md-4 col-sm-12">
-                      <div className="menu-content">
-                      <div className=" d-flex justify-content-center">
-                        <div className='col-md-4 col-sm-10'><NavLink to="/#favorite"><img src={heart}  alt='buy'/></NavLink></div>
-                        <div className='col-md-4 col-sm-10'>
-                            <div className='gap-1'><NavLink to="/cart"><img src={cart}  alt='buy'/></NavLink> <span>{cartCount}</span></div>
-                        </div>
-                        
-                        <div class="dropdown col-md-4 col-sm-10">
-                          <div class="dropdown-toggle "  id="MenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <div className="collapse navbar-collapse border" id="navbarSupportedContent">
+                 
+                  <div className="col-lg d-flex justify-content-between">
+                  <div className="col-lg-5 ">
+                    <div className="row">
+                    <div className="nav-item col-lg-4">
+                      <div className="nav-link"><NavLink  to="/"  >Home</NavLink></div>
+                    </div>
+                    <div className="nav-item col-lg-3">
+                      <div className="nav-link"><NavLink  to="/shop"  >Shop</NavLink></div>
+                    </div>
+                    <div className="nav-item col-lg-3">
+                      <div className="nav-link"><NavLink  to="/pages"  >Pages</NavLink></div>
+                    </div>
+                    </div>
+                  </div>
+                    
+                   <div className="col-lg-5">
+                    <div className="row">
+                    <div className="nav-item col-lg-3">
+                    <div className=''><NavLink to="/#favorite"><img src={heart}  alt='buy'/></NavLink></div>
+                      </div>
+                    <div className="nav-item col-lg-3">
+                    <div className='nav-link'><NavLink to="/cart"><img src={cart}  alt='buy'/></NavLink> <span>{cartCount}</span></div>
+                      </div>
+                    <div className="nav-item col-lg-3 border">
+                    <div className="dropdown nav-link">
+                          <div className="dropdown-toggle "  id="MenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             <div className='col-6 d-flex align-items-center gap-1'><img src={avatar} alt="" /><h6 className='m-0'>{isLogged ? currentUser.username : 'Login'}</h6>
                             </div>
                           </div>
-                          <ul class="dropdown-menu" aria-labelledby="MenuButton1">
+                          <ul className="dropdown-menu" aria-labelledby="MenuButton1">
+                                {isLogged && currentUser.isAdmin &&
+                                <>
+                                <div className=' dropdown-item   pt-1' onClick={()=>handleDashboard()}><li>Dashboard </li></div>
+                                <div className=' dropdown-item   pt-1'><li>Logout </li></div>
+                                </>
+                                }                
+                                {!isLogged && !currentUser &&
+                                  <>
+                                  <div className='dropdown-item '><li onClick={()=>handleLoginForm()}>Login </li></div>
+                                  <div className='dropdown-item '><li onClick={()=>openSignUpForm()}>signup </li></div>   
+                                  </>
+                                }
+                                {isLogged && !currentUser.isAdmin &&
+                                  <>
+                                  <div className='d-flex gap-1  dropdown-item  align-items-center text-center  pt-1'><img src={signin}  alt="register" /><li onClick={()=>openSignUpForm()}>logout </li></div>   
+                                  </>
+                                }
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                   </div>
+                  </div>
+            </div>
+            {/* <div className="collapse navbar-collapse border" id="navbarSupportedContent">
+              
+                <div className='Nav-menu d-flex flex-wrap text-center border col-md-10 col-sm-12 col-lg-4 mx-auto mb-2 mb-lg-0' id='menu'>
+              
+                        <ul>
+                        <li className="col-md-12  col-lg-4 nav-item">
+                              <NavLink  to="/"  >Home</NavLink>
+                        </li>
+                        <li className="col-md-12  col-lg-4 nav-item">
+                          <NavLink  to="/shop"  >Shop</NavLink>
+                        </li>
+                        <li className="col-md-12  col-lg-4 nav-item">
+                          <NavLink  to="/pages"  >Pages</NavLink>
+                        </li>
+                        </ul>
+                </div>
+                    <div className=" col-md-4 col-sm-12 col-lg-4">
+                      <div className="menu-content">
+                      <div className=" d-flex justify-content-center flex-wrap border ">
+                        <div className='col-md-4 col-sm-4 border'><NavLink to="/#favorite"><img src={heart}  alt='buy'/></NavLink></div>
+                        <div className='col-md-4 col-sm-4'>
+                            <div className='gap-1'><NavLink to="/cart"><img src={cart}  alt='buy'/></NavLink> <span>{cartCount}</span></div>
+                        </div>
+                        
+                        <div className="dropdown col-md-4 col-sm-4">
+                          <div className="dropdown-toggle "  id="MenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div className='col-6 d-flex align-items-center gap-1'><img src={avatar} alt="" /><h6 className='m-0'>{isLogged ? currentUser.username : 'Login'}</h6>
+                            </div>
+                          </div>
+                          <ul className="dropdown-menu" aria-labelledby="MenuButton1">
                                 {isLogged && currentUser.isAdmin &&
                                 <>
                                 <div className=' dropdown-item   pt-1' onClick={()=>handleDashboard()}><li>Dashboard </li></div>
@@ -210,7 +269,7 @@ const handleDashboard = ()=>{
                       </div>
                       </div>
                 </div>
-            </div>
+            </div> */}
           </div>
         </nav>
         
@@ -308,10 +367,6 @@ const handleDashboard = ()=>{
                             <label className="form-label" >Username</label>
                             </div>
                             
-                        </div>
-                        <div class="form-outline">
-                            <input type="text" id="form12" class="form-control" />
-                            <label class="form-label" for="form12">Example label</label>
                         </div>
 
                         <div className="d-flex flex-row align-items-center mb-2">

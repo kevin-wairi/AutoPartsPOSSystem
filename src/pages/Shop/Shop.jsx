@@ -57,6 +57,7 @@ function Shop({children ,sliderCat}) {
     setCarMakeFiltered('')
     setCarModelFiltered('')
     setYearFiltered('')
+    shopCatDropdown()
   }
  
   return (
@@ -113,8 +114,8 @@ function Shop({children ,sliderCat}) {
                               ))}
                           </datalist>
                       </div>
-                      <div className="col-md-1 col-sm-10  col-10">
-                        <button  onClick={(e)=>handleClearFilter(e)} className="btn border bg-danger text-white col-12 ">
+                      <div className="col-md-1 col-sm-10  col-10 navbar-toggle">
+                        <button  onClick={(e)=>handleClearFilter(e)} className="btn border bg-danger text-white col-12 " >
                           Clear
                         </button>
                       </div>
@@ -127,7 +128,7 @@ function Shop({children ,sliderCat}) {
   
      <div className="container-fluid">
      <div className="row">
-        <div type='col' className="col-5 text-center"><h6>Best Deals in spare parts and accessories</h6></div>
+        <div type='col' className="col-lg-5  text-center"><h6>Best Deals in spare parts and accessories</h6></div>
        </div>
      </div>
      <div className="shop-filter-section">
