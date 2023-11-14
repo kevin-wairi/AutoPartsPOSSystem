@@ -15,7 +15,6 @@ import transmission from '.././../Assets/icons/transmission.png';
 import eye from "../../Assets/icons/eye20.png"
 import cart from "../../Assets/icons/cart20.png"
 import heart from "../../Assets/icons/heart20.png"
-import Shop from '../Shop/Shop'
 
 import { ShortCat } from '../../components/ArrayFiles/ShortCat';
 
@@ -66,7 +65,7 @@ function Home({ topRated,spares ,handleAddToCart,setSliderCat}) {
 
         </div>
         <div className="row ">
-         <div className="cat-section mt-3">
+         <div className="cat-section mt-4">
          
          <div  class='categories-icons d-flex  justify-content-center  align-items-center gap-2' >
           <FontAwesomeIcon className='leftChevron' onClick={slideLeft} icon={faChevronLeft} />

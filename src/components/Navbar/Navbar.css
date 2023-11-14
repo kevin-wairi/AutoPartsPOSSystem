@@ -9,7 +9,7 @@
 
 }
 .navbar-wrapper{
-    border-bottom: #FB7009 1px solid;
+    border-bottom: black 1px solid;
 }
 
 /* Lines of the Toggler */
@@ -80,5 +80,9 @@
 
 .nav-item a:hover{
     color: #FB7009;
-
+    text-decoration: none;
+}
+.nav-item a{
+    color: black;
+    text-decoration: none;
 }
